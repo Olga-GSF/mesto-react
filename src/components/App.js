@@ -2,7 +2,7 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
-import PopupWithImage from './PopupWithImage';
+import ImagePopup from './ImagePopup';
 import { useState } from 'react';
 
 function App() {
@@ -77,7 +77,7 @@ function App() {
           </div>
         </PopupWithForm>
 
-        <PopupWithImage onClose={closeAllPopups} card={selectedCard} />
+        <ImagePopup onClose={closeAllPopups} card={selectedCard} />
 
         <div className="popup popup_type_sure">
           <div className="popup__content popup__content_optionally_sure">
