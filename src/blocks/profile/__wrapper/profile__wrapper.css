@@ -2,7 +2,7 @@
   box-sizing: border-box;
   max-width: 336px;
   display: grid;
-  grid-template-columns: 294px 24px;
+  grid-template-columns: 1fr 24px;
   grid-template-rows: minmax(max-content, min-content);
   gap: 16px 18px;
   justify-content: center;

@@ -36,25 +36,25 @@ class Api {
       .then(this._getJsonOrError)
   }
 
-  setUserData(data) {
+  setUserData(name, about) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._getHeaders(),
       body: JSON.stringify({
-        name: data.userName,
-        about: data.description
+        name,
+        about
       })
     })
       .then(this._getJsonOrError)
   }
 
-  createCard(data) {
+  createCard({ name, url }) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._getHeaders(),
       body: JSON.stringify({
-        name: data.name,
-        link: data.link
+        name: name,
+        link: url
       })
     })
       .then(this._getJsonOrError)
@@ -68,30 +68,38 @@ class Api {
       .then(this._getJsonOrError)
   }
 
-  likeCard(id) {
+  changeLikeCardStatus(id, isLiked) {
     return fetch(`${this._url}/cards/${id}/likes`, {
-      method: 'PUT',
+      method: isLiked ? 'PUT' : 'DELETE',
       headers: this._getHeaders(),
-      body: JSON.stringify({ id }),
     })
       .then(this._getJsonOrError)
   }
 
-  disLikeCard(id) {
-    return fetch(`${this._url}/cards/${id}/likes`, {
-      method: 'DELETE',
-      headers: this._getHeaders(),
-      body: JSON.stringify({ id }),
-    })
-      .then(this._getJsonOrError)
-  }
+  // likeCard(id) {
+  //   return fetch(`${this._url}/cards/${id}/likes`, {
+  //     method: 'PUT',
+  //     headers: this._getHeaders(),
+  //     body: JSON.stringify({ id }),
+  //   })
+  //     .then(this._getJsonOrError)
+  // }
 
-  setAva(data) {
+  // disLikeCard(id) {
+  //   return fetch(`${this._url}/cards/${id}/likes`, {
+  //     method: 'DELETE',
+  //     headers: this._getHeaders(),
+  //     body: JSON.stringify({ id }),
+  //   })
+  //     .then(this._getJsonOrError)
+  // }
+
+  setAva(avatar) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._getHeaders(),
       body: JSON.stringify({
-        avatar: data.avatar,
+        avatar
       })
     })
       .then(this._getJsonOrError)
