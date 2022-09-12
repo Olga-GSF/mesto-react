@@ -4,7 +4,7 @@ import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import { useState, useEffect } from 'react';
-import api from '../utils/Api';
+import api from '../utils/api';
 
 import EditProfilePopup from './EditProfilePopup';
 import RenewAvatarPopup from './RenewAvatarPopup';
@@ -68,7 +68,10 @@ function App() {
     api.changeLikeCardStatus(cards._id, !isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === cards._id ? newCard : c));
-      });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   function handleDeleteCard(card) {

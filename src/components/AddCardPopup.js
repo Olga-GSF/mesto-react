@@ -15,7 +15,6 @@ function AddCardPopup({ isOpen, onClose, onAddCard }) {
   }
 
   function handleAddPlaceSubmit(evt) {
-    console.log(handleAddPlaceSubmit);
     evt.preventDefault();
     onAddCard({
       name,
